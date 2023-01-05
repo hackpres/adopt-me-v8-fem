@@ -1,0 +1,24 @@
+{
+  "name": "adopt-me-v8-fem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackpres/adopt-me-v8-fem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackpres/adopt-me-v8-fem/issues"
+  },
+  "homepage": "https://github.com/hackpres/adopt-me-v8-fem#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
