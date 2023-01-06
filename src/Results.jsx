@@ -10,6 +10,7 @@ function Results({ pets }) {
             ) : (
                 pets.map(pet => (
                     <Pet
+                        id={pet.id}
                         animal={pet.animal}
                         name={pet.name}
                         breed={pet.breed}
