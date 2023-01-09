@@ -37,7 +37,7 @@ app.use((req, res) => {
             res.write(parts[1]);
             res.end();
         },
-        onError(err) {
+        onError(err: Error) {
             console.error(err);
         },
     });

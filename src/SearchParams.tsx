@@ -6,23 +6,24 @@ import {
   useTransition,
 } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Animal } from "./APIResponsesTypes"; 
 import AdoptedPetContext from "./AdoptedPetContext";
 import Results from "./Results";
 import useBreedList from "./useBreedList";
 import fetchSearch from "./fetchSearch";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParms = () => {
   const [requestParams, setRequestParams] = useState({
     location: "",
-    animal: "",
+    animal: "" as Animal,
     breed: "",
   });
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState("" as Animal);
   const [breeds] = useBreedList(animal);
   const [isPending, startTransition] = useTransition();
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [adoptedPet, _] = useContext(AdoptedPetContext);
 
   const results = useQuery(["search", requestParams], fetchSearch);
@@ -39,11 +40,11 @@ const SearchParms = () => {
         className="mb-10 flex flex-col items-center justify-center rounded-lg bg-gray-200 p-10 shadow-lg"
         onSubmit={(e) => {
           e.preventDefault();
-          const formData = new FormData(e.target);
+          const formData = new FormData(e.currentTarget);
           const obj = {
-            animal: formData.get("animal") ?? "",
-            location: formData.get("location") ?? "",
-            breed: formData.get("breed") ?? "",
+            animal: (formData.get("animal")?.toString() as Animal) ?? ("" as Animal),
+            location: formData.get("location")?.toString() ?? "",
+            breed: formData.get("breed")?.toString() ?? "",
           };
           startTransition(() => {
             setRequestParams(obj);
@@ -72,7 +73,7 @@ const SearchParms = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
-              setAnimal(e.target.value);
+              setAnimal(e.target.value as Animal);
             }}
           >
             <option />
