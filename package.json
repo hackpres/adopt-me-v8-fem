@@ -28,6 +28,8 @@
   "homepage": "https://github.com/hackpres/adopt-me-v8-fem#readme",
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.24.0",
@@ -40,6 +42,7 @@
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.4",
     "vite": "^3.1.4"
   },
   "dependencies": {
